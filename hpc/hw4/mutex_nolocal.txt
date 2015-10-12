@@ -1,0 +1,60 @@
+
+**************************************
+
+Example 1
+Took 980 ms
+a:-1.000000	 b:1.000000	 n:2000000000	 actual:0.666667	 approximation:0.666667
+Mutex
+Took 48160 ms
+a:-1.000000	 b:1.000000	 n:2000000000	 actual:0.666667	 approximation:0.666667	error:0.000000
+ThreadCount:2	SpeedUp:0.020349
+
+**************************************
+
+Example 2
+Took 800 ms
+a:0.000000	 b:10.000000	 n:2000000000	 actual:333.333000	 approximation:333.333332
+Mutex
+Took 47760 ms
+a:0.000000	 b:10.000000	 n:2000000000	 actual:333.333000	 approximation:333.333333	error:-0.000333
+ThreadCount:2	SpeedUp:0.016750
+
+**************************************
+
+Example 1
+Took 980 ms
+a:-1.000000	 b:1.000000	 n:2000000000	 actual:0.666667	 approximation:0.666667
+Mutex
+Took 48150 ms
+a:-1.000000	 b:1.000000	 n:2000000000	 actual:0.666667	 approximation:0.666667	error:0.000000
+ThreadCount:50	SpeedUp:0.020353
+
+**************************************
+
+Example 2
+Took 800 ms
+a:0.000000	 b:10.000000	 n:2000000000	 actual:333.333000	 approximation:333.333332
+Mutex
+Took 47760 ms
+a:0.000000	 b:10.000000	 n:2000000000	 actual:333.333000	 approximation:333.333333	error:-0.000333
+ThreadCount:50	SpeedUp:0.016750
+
+**************************************
+
+Example 1
+Took 980 ms
+a:-1.000000	 b:1.000000	 n:2000000000	 actual:0.666667	 approximation:0.666667
+Mutex
+Took 48140 ms
+a:-1.000000	 b:1.000000	 n:2000000000	 actual:0.666667	 approximation:0.666667	error:0.000000
+ThreadCount:100	SpeedUp:0.020357
+
+**************************************
+
+Example 2
+Took 810 ms
+a:0.000000	 b:10.000000	 n:2000000000	 actual:333.333000	 approximation:333.333332
+Mutex
+Took 47760 ms
+a:0.000000	 b:10.000000	 n:2000000000	 actual:333.333000	 approximation:333.333333	error:-0.000333
+ThreadCount:100	SpeedUp:0.016960

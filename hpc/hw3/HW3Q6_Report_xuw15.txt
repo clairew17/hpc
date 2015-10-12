@@ -1,0 +1,29 @@
+
+c. pad matrix
+using iteration method: the matrix size needs to be power of 2. Pad the matrixes with 0 to 2^(ceil(log2(N)));
+In this home work, the computation of M1-M7 and C11-C22 is computed with simple matrix multiplication, not Strassen's algorithm. Thus the matrix size only needs to be even. Pad the matrixes with 0 to size of 2*(ceil(N/2)) if the original matrix size is Odd.
+
+d. sequential strassen
+
+A sequential strassen matrix multiplication is implemented and executed, when 'SEQUENTIAL'is defined '1'.
+The matrixes A, B, C are padded as mentioned in c.
+The computation of M1-M7 and C11-C22 are implemented in respective functions named i.e. GetM1,...,GetM7, GetC11, ..., GetC22. The matrix oprations like add, sub, multiply within these functions are sequential.
+
+e. parallized strassen
+When 'SEQUENTIAL' is defined 'False', a simple parallization is to compute M1-M7 in parallel because the operands needed to compute M1-M7 are independent. Thus 7 threads are creasted to call the GetM1-GetM7 funtions. The results are stored in static variables named M1-M7.
+
+All the seven threads are synchronized by Pthread_join.
+
+Then 4 threads are created to compute C11-C22 in parallel. The results are stored in static matrix C.
+
+f. Results
+Matrix size of 15, 17, 231, 1231, 2231 are tested with SimpleMM, StrassenMM
+(Sequetial and Parallel) in file Strassen.o*
+The execution time off StrassenMM is shorter than the time of SimpleMM when
+matrix size increases, i.e. 231, 1231.
+However, the Parallel StrassenMM is a little bit longer than Sequential
+StrassenMM for large matrix size. This is because the timer is not accurate to
+get the multithread program. Actually, the excecution time of multithread
+strassen could be only 1/4 to 1/7 of the printed execution time, which depends
+on how perfect the threads are parallized.
+

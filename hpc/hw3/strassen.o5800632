@@ -1,0 +1,50 @@
+Simple MM took 0 ms
+
+N=15, n=8
+Sequential Strassen...
+Strassen MM took 0 ms
+
+N=15, n=8
+Parallel Strassen...
+Strassen MM took 0 ms
+
+Simple MM took 0 ms
+
+N=17, n=9
+Sequential Strassen...
+Strassen MM took 0 ms
+
+N=17, n=9
+Parallel Strassen...
+Strassen MM took 0 ms
+
+Simple MM took 70 ms
+
+N=231, n=116
+Sequential Strassen...
+Strassen MM took 60 ms
+
+N=231, n=116
+Parallel Strassen...
+Strassen MM took 70 ms
+
+Simple MM took 15520 ms
+
+N=1231, n=616
+Sequential Strassen...
+Strassen MM took 10880 ms
+
+N=1231, n=616
+Parallel Strassen...
+Strassen MM took 11000 ms
+
+Simple MM took 118630 ms
+
+N=2231, n=1116
+Sequential Strassen...
+Strassen MM took 89950 ms
+
+N=2231, n=1116
+Parallel Strassen...
+Strassen MM took 85440 ms
+

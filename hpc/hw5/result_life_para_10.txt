@@ -1,0 +1,10 @@
+N=10
+Took 40 ms
+N=20
+Took 250 ms
+N=50
+Took 1600 ms
+N=100
+Took 6520 ms
+N=1000
+slurmstepd: *** JOB 5880737 CANCELLED AT 2015-10-11T20:36:45 DUE TO TIME LIMIT on c403-504 ***

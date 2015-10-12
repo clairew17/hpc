@@ -1,0 +1,15 @@
+OMP_NUM_THREADS=2
+Took 0 ms
+---Congrats! The result is correct!
+OMP_NUM_THREADS=4
+Took 10 ms
+---Congrats! The result is correct!
+OMP_NUM_THREADS=8
+Took 20 ms
+---Congrats! The result is correct!
+OMP_NUM_THREADS=16
+Took 2790 ms
+---Congrats! The result is correct!
+OMP_NUM_THREADS=32
+Took 3230 ms
+---Congrats! The result is correct!

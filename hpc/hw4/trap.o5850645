@@ -1,0 +1,135 @@
+/tmp/slurmd/job5850645/slurm_script: line 17: 
+./trap_mutex 2 0
+./trap_mutex 50 0
+./trap_mutex 100 0
+
+./trap_busywait 2 0
+./trap_busywait 50 0
+./trap_busywait 100 0
+: No such file or directory
+
+**************************************
+
+Example 1
+Took 880 ms
+a:-1.000000	 b:1.000000	 n:1800000000	 actual:0.666667	 approximation:0.666667
+Mutex	 with local sum...
+Took 9870 ms
+a:-1.000000	 b:1.000000	 n:1800000000	 actual:0.666667	 approximation:0.666667	error:0.000000
+ --- ThreadCount:2	SpeedUp:0.089159	error:0.000000
+
+**************************************
+
+Example 2
+Took 730 ms
+a:0.000000	 b:10.000000	 n:1800000000	 actual:333.333000	 approximation:333.333332
+Mutex	 with local sum...
+Took 8190 ms
+a:0.000000	 b:10.000000	 n:1800000000	 actual:333.333000	 approximation:333.333333	error:-0.000333
+ThreadCount:2	SpeedUp:0.089133
+ --- ThreadCount:2	SpeedUp:0.089133	error:-0.000333
+
+**************************************
+
+Example 1
+Took 880 ms
+a:-1.000000	 b:1.000000	 n:1800000000	 actual:0.666667	 approximation:0.666667
+Mutex	 with local sum...
+Took 9870 ms
+a:-1.000000	 b:1.000000	 n:1800000000	 actual:0.666667	 approximation:0.666667	error:0.000000
+ --- ThreadCount:50	SpeedUp:0.089159	error:0.000000
+
+**************************************
+
+Example 2
+Took 730 ms
+a:0.000000	 b:10.000000	 n:1800000000	 actual:333.333000	 approximation:333.333332
+Mutex	 with local sum...
+Took 8130 ms
+a:0.000000	 b:10.000000	 n:1800000000	 actual:333.333000	 approximation:333.333333	error:-0.000333
+ThreadCount:50	SpeedUp:0.089791
+ --- ThreadCount:50	SpeedUp:0.089791	error:-0.000333
+
+**************************************
+
+Example 1
+Took 880 ms
+a:-1.000000	 b:1.000000	 n:1800000000	 actual:0.666667	 approximation:0.666667
+Mutex	 with local sum...
+Took 9870 ms
+a:-1.000000	 b:1.000000	 n:1800000000	 actual:0.666667	 approximation:0.666667	error:0.000000
+ --- ThreadCount:100	SpeedUp:0.089159	error:0.000000
+
+**************************************
+
+Example 2
+Took 730 ms
+a:0.000000	 b:10.000000	 n:1800000000	 actual:333.333000	 approximation:333.333332
+Mutex	 with local sum...
+Took 8170 ms
+a:0.000000	 b:10.000000	 n:1800000000	 actual:333.333000	 approximation:333.333333	error:-0.000333
+ThreadCount:100	SpeedUp:0.089351
+ --- ThreadCount:100	SpeedUp:0.089351	error:-0.000333
+
+**************************************
+
+Example 1
+Took 880 ms
+a:-1.000000	 b:1.000000	 n:1800000000	 actual:0.666667	 approximation:0.666667
+Busy waiting	 with local sum...
+Took 9920 ms
+a:-1.000000	 b:1.000000	 n:1800000000	 actual:0.666667	 approximation:0.666667	error:0.000000
+ --- ThreadCount:2	SpeedUp:0.088710	error:0.000000
+
+**************************************
+
+Example 2
+Took 730 ms
+a:0.000000	 b:10.000000	 n:1800000000	 actual:333.333000	 approximation:333.333332
+Busy waiting	 with local sum...
+Took 8130 ms
+a:0.000000	 b:10.000000	 n:1800000000	 actual:333.333000	 approximation:333.333333	error:-0.000333
+ThreadCount:2	SpeedUp:0.089791
+ --- ThreadCount:2	SpeedUp:0.089791	error:-0.000333
+
+**************************************
+
+Example 1
+Took 880 ms
+a:-1.000000	 b:1.000000	 n:1800000000	 actual:0.666667	 approximation:0.666667
+Busy waiting	 with local sum...
+Took 9870 ms
+a:-1.000000	 b:1.000000	 n:1800000000	 actual:0.666667	 approximation:0.666667	error:0.000000
+ --- ThreadCount:50	SpeedUp:0.089159	error:0.000000
+
+**************************************
+
+Example 2
+Took 730 ms
+a:0.000000	 b:10.000000	 n:1800000000	 actual:333.333000	 approximation:333.333332
+Busy waiting	 with local sum...
+Took 8130 ms
+a:0.000000	 b:10.000000	 n:1800000000	 actual:333.333000	 approximation:333.333333	error:-0.000333
+ThreadCount:50	SpeedUp:0.089791
+ --- ThreadCount:50	SpeedUp:0.089791	error:-0.000333
+
+**************************************
+
+Example 1
+Took 880 ms
+a:-1.000000	 b:1.000000	 n:1800000000	 actual:0.666667	 approximation:0.666667
+Busy waiting	 with local sum...
+Took 9870 ms
+a:-1.000000	 b:1.000000	 n:1800000000	 actual:0.666667	 approximation:0.666667	error:0.000000
+ --- ThreadCount:100	SpeedUp:0.089159	error:0.000000
+
+**************************************
+
+Example 2
+Took 730 ms
+a:0.000000	 b:10.000000	 n:1800000000	 actual:333.333000	 approximation:333.333332
+Busy waiting	 with local sum...
+Took 8130 ms
+a:0.000000	 b:10.000000	 n:1800000000	 actual:333.333000	 approximation:333.333333	error:-0.000333
+ThreadCount:100	SpeedUp:0.089791
+ --- ThreadCount:100	SpeedUp:0.089791	error:-0.000333

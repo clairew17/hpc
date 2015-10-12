@@ -1,0 +1,13 @@
+#!/bin/bash
+#SBATCH -J strassen      # Job Name
+#SBATCH -o strassen.o%j  # Output and error file name (%j expands to jobID)
+#SBATCH -n 16            # Total number of mpi tasks requested
+#SBATCH -p normal        # Queue (partition) name -- normal, development, etc.
+#SBATCH -t 00:05:00      # Run time (hh:mm:ss) - 30 minutes
+#SBATCH -A TG-CCR150026
+
+./strassen 15
+./strassen 17 matrix_A.txt matrix_I.txt 
+./strassen 231
+./strassen 1231
+./strassen 2231

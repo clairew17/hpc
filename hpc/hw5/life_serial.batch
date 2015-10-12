@@ -1,0 +1,40 @@
+#!/bin/bash
+#SBATCH -J life          # Job Name
+#SBATCH -o life.o%j      # Output and error file name (%j expands to jobID)
+#SBATCH -n 16            # Total number of mpi tasks requested
+#SBATCH -p normal        # Queue (partition) name -- normal, development, etc.
+#SBATCH -t 00:05:00      # Run time (hh:mm:ss) - 5 minutes
+#SBATCH -A TG-CCR150026
+N=10
+echo N=$N
+./life $N 20000
+
+N=20
+echo N=$N
+./life $N 20000
+
+N=50
+echo N=$N
+./life $N 20000
+
+N=100
+echo N=$N
+./life $N 20000
+
+N=1000
+echo N=$N
+./life $N 20000
+
+
+
+
+
+'''
+./life 10 20000 world_1.txt result_1.txt
+./life 6 20000 world_2.txt result_2.txt
+
+echo "Serial game of life...\n"
+./life_serial 10 20000
+./life_serial 10 20000 world_1.txt result_1.txt
+./life_serial 6 20000 world_2.txt result_2.txt
+'''

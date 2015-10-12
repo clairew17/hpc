@@ -1,0 +1,14 @@
+d.
+i.Busy-waiting 
+When thread number increases from 2 to 50, the execution time decreases. When thread number continue to increase, the execution time remain the same, because of the limited thread increased waiting time to switch among threads.
+
+The accuracy is constant because of the limited precision of referenced value.
+
+ii. Mutex
+The execution time decreases when thread number increase from 2 to 50 for the better parallelization;
+The execution time increased when threadnumber increases from 50 to 100 for the longer waiting time to switch among many threads.
+
+e. 
+
+For both busy waiting and mutex, the execution time decreases significantly by about 71.7% for the shortened waiting time in LOOP (busy wait) and mutex lock and unock overhead.
+ 
