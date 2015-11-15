@@ -11,7 +11,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-long startTime;
+//long startTime;
+double startTime;
 
 // Starts timer and resets the elapsed time
 void timerStart(){
@@ -21,8 +22,10 @@ void timerStart(){
 }
 
 // Stops the timer and returns the elapsed time
-long timerStop(){
+double timerStop(){
+//long timerStop(){
   struct timeval tod;
   gettimeofday(&tod, NULL);
-  return ((tod.tv_sec + (tod.tv_usec * 1.0e-6)) - startTime) * 1000;
+  return ((tod.tv_sec + (tod.tv_usec * 1.0e-6)) - startTime);
+  //return ((tod.tv_sec + (tod.tv_usec * 1.0e-6)) - startTime) * 1000;
 }

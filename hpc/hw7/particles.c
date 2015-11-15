@@ -93,18 +93,22 @@ int *sendcount = (int*)malloc(p*(sizeof(int)));
 int *displs = (int*)malloc(p*sizeof(int));
 j=0;
 for(i=0;i<p;i++){
-	if(i==p-1){
-		data_per_proc[i] = n-number*(p-1);;
+	if(i<n%p){
+		data_per_proc[i] = number;;
 	}else{
-		data_per_proc[i]=number;
+		data_per_proc[i]=number-1;
 	}
 	sendcount[i] = data_per_proc[i]* (sizeof(struct Particle))/sizeof(float);
 	if(i==0)displs[i] = 0;
 	else displs[i] = displs[i-1]+sendcount[i-1];
 	j+=data_per_proc[i];
-}
-//printf("n=%d,total=%d\n",n,j);
 
+}
+
+if(DEBUG){
+printf("p=%d\trank=%d\tdata_num=%d\tsendcount=%d\n",p,myRank,data_per_proc[myRank],sendcount[myRank]);
+printf("n=%d,total=%d\n",n,j);
+}
 locals = (struct Particle *) malloc(number * sizeof(struct Particle));
 remotes = (struct Particle *) malloc(number * sizeof(struct Particle));
 
@@ -184,6 +188,7 @@ MPI_FLOAT,
 0,//SOURCE_PROCESSOR
 MPI_COMM_WORLD);
 */
+
 MPI_Scatterv(globals,//SEND_BUF
 sendcount,//data_per_proc*(sizeof (struct Particle)) / sizeof(float),
 displs,
@@ -249,7 +254,7 @@ compute_interaction(locals, remotes, data_per_proc[myRank], data_per_proc[initia
 	//send to original processor if the last step
 	if(i==(p-1)/2-1){
 	next=initiator;//(myRank-i-1+p)%p;
-	printf("%d --> %d...\n",myRank,next);
+	if(DEBUG)printf("%d --> %d...\n",myRank,next);
 	}else next=(myRank+1+p)%p;
 	
 	MPI_Isend(remotes,

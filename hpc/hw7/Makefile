@@ -4,7 +4,7 @@ particles: particles.c
 	mpicc -o particles particles.c -g
 
 particles_serial: particles_serial.c
-	#icpc -o particles_serial particles_serial.c
+	icpc -o particles_serial particles_serial.c
 
 clean:
 	rm -f particles

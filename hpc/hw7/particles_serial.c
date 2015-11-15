@@ -67,7 +67,7 @@ int main(int argc, char** argv){
   if(argc == 3){
     read_file(locals,n,argv[2]);
     refs  = (struct Particle *) malloc(n * sizeof(struct Particle));
-	read_ref(refs,n,"test_results_1.txt");
+	//read_ref(refs,n,"test_results_1.txt");
 } else {
     // random initialization of local particle array
     for(int j = 0; j < n; j++){
@@ -102,6 +102,7 @@ if(Right){
 }
 
   printf("Duration: %f seconds\n", duration);
+free(refs);
 }
 bool CheckResult(struct Particle *locals, struct Particle *refs,int n){
 
