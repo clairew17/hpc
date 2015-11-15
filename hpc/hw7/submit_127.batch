@@ -6,6 +6,6 @@
 #SBATCH -t 00:05:00        # Run time (hh:mm:ss) - 5 minutes
 #SBATCH -A TG-CCR150026
 
-ibrun ./particles 496 test_particles_1.txt
+ibrun -np 127 ./particles 496 test_particles_1.txt
 
 #ibrun ./particles 1000062
