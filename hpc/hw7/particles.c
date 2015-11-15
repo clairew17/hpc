@@ -12,7 +12,7 @@
 #include <stdlib.h>
 #include <math.h>
 
-#define DEBUG 1
+#define DEBUG 0
 #define TAG 7
 #define CONSTANT 777
 
@@ -287,7 +287,7 @@ merge(locals, remotes, number);
   // stopping timer
   if(myRank == 0){
     end_time = MPI_Wtime();
-    printf("Duration: %f seconds\n", (end_time-start_time));
+    printf("n=%d\tp=%d\tDuration: %f seconds\n", n,p,(end_time-start_time));
   }
   
   // printing information on particles
@@ -351,7 +351,7 @@ void print_particles(struct Particle *particles, struct Particle *result, int n)
   int j;
   printf("Index\tx\ty\tmass\tfx\tfy\n");
   for(j = 0; j < n; j++){
-	printf("ERR\t%d\t%f\t%f\t%f\t%f\t%f(--err)\n",j,particles[j].x,particles[j].y,particles[j].mass,particles[j].fx-result[j].fx,particles[j].fy-result[j].fy);
+	//printf("ERR\t%d\t%f\t%f\t%f\t%f\t%f(--err)\n",j,particles[j].x,particles[j].y,particles[j].mass,particles[j].fx-result[j].fx,particles[j].fy-result[j].fy);
     if(DEBUG){
 	printf("Orig\t%d\t%f\t%f\t%f\t%f\t%f\n",j,particles[j].x,particles[j].y,particles[j].mass,particles[j].fx,particles[j].fy);
 	printf("Ref\t%d\t%f\t%f\t%f\t%f\t%f\n",j,result[j].x,result[j].y,result[j].mass,result[j].fx,result[j].fy);

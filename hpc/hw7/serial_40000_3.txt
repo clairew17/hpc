@@ -1,0 +1,1 @@
+n=40000	Duration: 22.185195 seconds

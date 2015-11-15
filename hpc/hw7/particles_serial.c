@@ -101,7 +101,8 @@ if(Right){
 
 }
 
-  printf("Duration: %f seconds\n", duration);
+    printf("n=%d\tDuration: %f seconds\n", n,duration);
+  //printf("Duration: %f seconds\n", duration);
 free(refs);
 }
 bool CheckResult(struct Particle *locals, struct Particle *refs,int n){
