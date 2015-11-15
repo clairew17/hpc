@@ -5,26 +5,34 @@
 #SBATCH -p normal        # Queue (partition) name -- normal, development, etc.
 #SBATCH -t 00:05:00      # Run time (hh:mm:ss) - 5 minutes
 #SBATCH -A TG-CCR150026
-N=100
-echo N=$N
+N=500
+echo "N=$N"
+
+echo "Serial.."
+./life_serial $N 2000
+
 export OMP_NUM_THREADS=2
-echo OMP_NUM_THREADS=2
-./life $N 20000
+echo "OMP_NUM_THREADS=2"
+./life $N 2000
 
 export OMP_NUM_THREADS=4
-echo OMP_NUM_THREADS=4
-./life $N 20000
+echo "OMP_NUM_THREADS=4"
+./life $N 2000
 
 export OMP_NUM_THREADS=8
-echo OMP_NUM_THREADS=8
-./life $N 20000
+echo "OMP_NUM_THREADS=8"
+./life $N 2000
 
 export OMP_NUM_THREADS=16
-echo OMP_NUM_THREADS=16
-./life $N 20000
+echo "OMP_NUM_THREADS=16"
+./life $N 2000
 
 export OMP_NUM_THREADS=32
-echo OMP_NUM_THREADS=32
-./life $N 20000
+echo "OMP_NUM_THREADS=32"
+./life $N 2000
+
+export OMP_NUM_THREADS=64
+echo "OMP_NUM_THREADS=64"
+./life $N 2000
 
 

@@ -1,0 +1,32 @@
+
+Basic Usage: 
+/usr/local/bin/ibrun ./executable <executable_opions>
+
+In normal usage, pass only the MPI executable name and any
+options the executable requires.
+
+
+Advanced Usage:
+/usr/local/bin/ibrun -n <number of processors> -o <offset into processor hostlist> executable <execuable_opions>
+
+In this case you can specify a subset of processors from the
+list of all hosts on which to run the executable, and an offset into the list
+of processors to start numbering.  This allows you to e.g. launch two different
+exectuables on two different subsets of the available hosts.
+
+For example, the following  batch environment will allocate 
+ two nodes with  tasks per node: 
+   #$ -n 
+   #$ -N 2 
+
+ We can run two independent jobs on each node:
+ /usr/local/bin/ibrun -n  -o 0  ./mpihello &
+ /usr/local/bin/ibrun -n  -o  ./mpihello &
+ wait
+
+The first call launches a -task job on the first  cores in the hostfile,
+The second call launches a -task job on the second  cores in the hostfile.
+The shell 'wait' command waits for all processes to finish before the shell exits.
+ 
+ERROR: Do not run /usr/local/bin/ibrun on the login node!
+       It must be run on a compute node.

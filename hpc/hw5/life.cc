@@ -58,7 +58,6 @@ int **allocMatrix(int size) {
 
 // Main method      
 int main(int argc, char* argv[]) {
-double start, end;
   
 int N,M;
   int **World;
@@ -91,12 +90,10 @@ int **Result = allocMatrix(N);
 
   // starting timer
   timerStart();
-start = omp_get_wtime();  
 // calling conway's game of life 
   conway(World,N,M);
 
   // stopping timer
-  end = omp_get_wtime();
 
 elapsedTime = timerStop();
 

@@ -1,0 +1,22 @@
+N=6400
+serial..
+Took 846 ms
+---Congrats! The result is correct!
+OMP_NUM_THREADS=2
+Took 969 ms
+---Congrats! The result is correct!
+OMP_NUM_THREADS=4
+Took 171 ms
+---Congrats! The result is correct!
+OMP_NUM_THREADS=8
+Took 381 ms
+---Congrats! The result is correct!
+OMP_NUM_THREADS=16
+Took 762 ms
+---Congrats! The result is correct!
+OMP_NUM_THREADS=32
+Took 1220 ms
+---Congrats! The result is correct!
+OMP_NUM_THREADS=64
+Took 617 ms
+---Congrats! The result is correct!
