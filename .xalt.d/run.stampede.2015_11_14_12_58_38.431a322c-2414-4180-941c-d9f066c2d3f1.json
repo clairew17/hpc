@@ -1,0 +1,256 @@
+{
+  "envT": {
+    "APPS": "/opt/apps",
+    "ARCHIVE": "/home/03752/tg830512",
+    "ARCHIVER": "ranch.tacc.utexas.edu",
+    "ARMCI_OPENIB_DEVICE": "mlx4_0",
+    "BASH_ENV": "/etc/tacc/tacc_functions",
+    "CPATH": "/opt/apps/intel/15/composer_xe_2015.2.164/mkl/include:/opt/apps/intel/15/composer_xe_2015.2.164/tbb/include",
+    "CVS_RSH": "ssh",
+    "ENVIRONMENT": "BATCH",
+    "GLOBUS_LOCATION": "/opt/apps/xsede/gsi-openssh-5.7",
+    "G_BROKEN_FILENAMES": "1",
+    "HOME": "/home1/03752/tg830512",
+    "HOSTNAME": "c557-801",
+    "ICC_BIN": "/opt/apps/intel/15/composer_xe_2015.2.164/bin/intel64",
+    "ICC_LIB": "/opt/apps/intel/15/composer_xe_2015.2.164/compiler/lib/intel64",
+    "IDEV_PWD": "/home1/03752/tg830512/hpc/hw7",
+    "IDEV_QDEL": "scancel",
+    "IDEV_SETUP_BYPASS": "1.0",
+    "IFC_BIN": "/opt/apps/intel/15/composer_xe_2015.2.164/bin/intel64",
+    "IFC_LIB": "/opt/apps/intel/15/composer_xe_2015.2.164/compiler/lib/intel64",
+    "INCLUDE": "/opt/apps/intel/15/composer_xe_2015.2.164/ipp/include:/opt/apps/intel/15/composer_xe_2015.2.164/mkl/include:/opt/apps/intel/15/composer_xe_2015.2.164/tbb/include",
+    "INFOPATH": "/opt/apps/intel15/mvapich2/2.1/doc:/opt/apps/intel/15/composer_xe_2015.2.164/debugger/gdb/intel64/share/info",
+    "INPUTRC": "/etc/inputrc",
+    "INTEL_PYTHONHOME": "/opt/apps/intel/15/composer_xe_2015.2.164/debugger/python/intel64",
+    "I_MPI_DAPL_PROVIDER": "ofa-v2-mlx4_0-1u",
+    "I_MPI_OFA_ADAPTER_NAME": "mlx4_0",
+    "LC_ALL": "en_US.UTF-8",
+    "LD_LIBRARY_PATH": "/opt/apps/intel15/mvapich2/2.1/lib:/opt/apps/intel15/mvapich2/2.1/lib/shared:/opt/apps/intel/15/composer_xe_2015.2.164/mpirt/lib/intel64:/opt/apps/intel/15/composer_xe_2015.2.164/ipp/lib/intel64:/opt/apps/intel/15/composer_xe_2015.2.164/mkl/lib/intel64:/opt/apps/intel/15/composer_xe_2015.2.164/tbb/lib/intel64:/opt/apps/intel/15/composer_xe_2015.2.164/tbb/lib/intel64/gcc4.4:/opt/apps/intel/15/composer_xe_2015.2.164/compiler/lib/intel64:/opt/apps/xsede/gsi-openssh-5.7/lib64:/opt/apps/xsede/gsi-openssh-5.7/lib64",
+    "LIBPATH": "/opt/apps/xsede/gsi-openssh-5.7/lib64:/usr/lib:/lib",
+    "LIBRARY_PATH": "/opt/apps/intel/15/composer_xe_2015.2.164/ipp/lib/intel64:/opt/apps/intel/15/composer_xe_2015.2.164/mkl/lib/intel64:/opt/apps/intel/15/composer_xe_2015.2.164/tbb/lib/intel64:/opt/apps/intel/15/composer_xe_2015.2.164/compiler/lib/intel64",
+    "LMOD_CMD": "/opt/apps/lmod/lmod/libexec/lmod",
+    "LMOD_COLORIZE": "yes",
+    "LMOD_DEFAULT_MODULEPATH": "/opt/apps/xsede/modulefiles:/opt/apps/modulefiles:/opt/modulefiles",
+    "LMOD_DIR": "/opt/apps/lmod/lmod/libexec",
+    "LMOD_FAMILY_COMPILER": "intel",
+    "LMOD_FAMILY_MPI": "mvapich2",
+    "LMOD_FULL_SETTARG_SUPPORT": "no",
+    "LMOD_PKG": "/opt/apps/lmod/lmod",
+    "LMOD_PREPEND_BLOCK": "normal",
+    "LMOD_SETTARG_CMD": ":",
+    "LMOD_SYSTEM_DEFAULT_MODULES": "TACC",
+    "LMOD_VERSION": "6.0.9",
+    "LOADEDMODULES": "intel/15.0.2:mvapich2/2.1:xalt/0.6:TACC",
+    "LOGNAME": "tg830512",
+    "MANPATH": ":/usr/share/man",
+    "MIC_ENV_PREFIX": "MIC",
+    "MIC_I_MPI_DAPL_PROVIDER": "ofa-v2-mlx4_0-1u",
+    "MIC_I_MPI_OFA_ADAPTER_NAME": "mlx4_0",
+    "MIC_LD_LIBRARY_PATH": "/opt/apps/intel/15/composer_xe_2015.2.164/mkl/lib/mic:/opt/apps/intel/15/composer_xe_2015.2.164/tbb/lib/mic:/opt/intel/mic/coi/device-linux-release/lib:/opt/intel/mic/myo/lib:/opt/apps/intel/15/composer_xe_2015.2.164/compiler/lib/mic",
+    "MIC_LIBRARY_PATH": "/opt/apps/intel/15/composer_xe_2015.2.164/tbb/lib/mic:/opt/apps/intel/15/composer_xe_2015.2.164/mpirt/lib/mic:/opt/apps/intel/15/composer_xe_2015.2.164/compiler/lib/mic",
+    "MKLROOT": "/opt/apps/intel/15/composer_xe_2015.2.164/mkl",
+    "MODULEPATH": "/opt/apps/intel15/mvapich2_2_1/modulefiles:/opt/apps/intel15/modulefiles:/opt/apps/xsede/modulefiles:/opt/apps/modulefiles:/opt/modulefiles",
+    "MODULESHOME": "/opt/apps/lmod/lmod",
+    "MPICH_HOME": "/opt/apps/intel15/mvapich2/2.1",
+    "MV2_IBA_HCA": "mlx4_0",
+    "MV2_USE_OLD_BCAST": "0",
+    "MV2_USE_UD_HYBRID": "0",
+    "NO_HOSTSORT": "1",
+    "OMP_NUM_THREADS": "1",
+    "PATH": "/opt/apps/xalt/0.6/bin:/opt/apps/intel15/mvapich2/2.1/bin:/opt/apps/intel/15/composer_xe_2015.2.164/bin/intel64:/usr/lib64/qt-3.3/bin:/usr/local/bin:/bin:/usr/bin:/opt/apps/xsede/gsi-openssh-5.7/bin:/usr/X11R6/bin:/opt/ofed/bin:/opt/ofed/sbin:.",
+    "PKG_CONFIG_PATH": "/opt/apps/intel15/mvapich2/2.1/lib/pkgconfig",
+    "PWD": "/home1/03752/tg830512/hpc/hw7",
+    "PYTHONPATH": "",
+    "QTDIR": "/usr/lib64/qt-3.3",
+    "QTINC": "/usr/lib64/qt-3.3/include",
+    "QTLIB": "/usr/lib64/qt-3.3/lib",
+    "RUNNING_IDEV": "1",
+    "SCRATCH": "/scratch/03752/tg830512",
+    "SHELL": "/bin/bash",
+    "SHLIB_PATH": "/opt/apps/xsede/gsi-openssh-5.7/lib64",
+    "SHLVL": "4",
+    "SINK_LD_LIBRARY_PATH": "/opt/apps/intel/15/composer_xe_2015.2.164/compiler/lib/mic:/opt/apps/intel/15/composer_xe_2015.2.164/mkl/lib/mic",
+    "SLURMD_NODENAME": "c557-801",
+    "SLURM_CHECKPOINT_IMAGE_DIR": "/home1/03752/tg830512/hpc/hw7",
+    "SLURM_CLUSTER_NAME": "stampede",
+    "SLURM_CPUS_ON_NODE": "16",
+    "SLURM_GTIDS": "0",
+    "SLURM_JOBID": "6049793",
+    "SLURM_JOB_CPUS_PER_NODE": "16",
+    "SLURM_JOB_ID": "6049793",
+    "SLURM_JOB_NAME": "idv16027",
+    "SLURM_JOB_NODELIST": "c557-801",
+    "SLURM_JOB_NUM_NODES": "1",
+    "SLURM_JOB_PARTITION": "development",
+    "SLURM_JOB_UID": "830512",
+    "SLURM_JOB_USER": "tg830512",
+    "SLURM_LOCALID": "0",
+    "SLURM_NNODES": "1",
+    "SLURM_NODEID": "0",
+    "SLURM_NODELIST": "c557-801",
+    "SLURM_NODE_ALIASES": "(null)",
+    "SLURM_NPROCS": "16",
+    "SLURM_NTASKS": "16",
+    "SLURM_PRIO_PROCESS": "0",
+    "SLURM_PROCID": "0",
+    "SLURM_QUEUE": "development",
+    "SLURM_SUBMIT_DIR": "/home1/03752/tg830512/hpc/hw7",
+    "SLURM_SUBMIT_HOST": "login2.stampede.tacc.utexas.edu",
+    "SLURM_TACC_ACCOUNT": "TG-CCR150026",
+    "SLURM_TACC_CORES": "16",
+    "SLURM_TACC_JOBNAME": "idv16027",
+    "SLURM_TACC_NCORES_SET": "1",
+    "SLURM_TACC_NNODES_SET": "0",
+    "SLURM_TACC_NODES": "1",
+    "SLURM_TACC_RUNLIMIT_MINS": "30",
+    "SLURM_TASKS_PER_NODE": "16",
+    "SLURM_TASK_PID": "79441",
+    "SLURM_TOPOLOGY_ADDR": "c557-801",
+    "SLURM_TOPOLOGY_ADDR_PATTERN": "node",
+    "STOCKYARD": "/work/03752/tg830512",
+    "SYSTEM": "linux",
+    "TACC_DOMAIN": "stampede",
+    "TACC_FAMILY_COMPILER": "intel",
+    "TACC_FAMILY_MPI": "mvapich2",
+    "TACC_ICC_DIR": "/opt/apps/intel/15/composer_xe_2015.2.164",
+    "TACC_MKL_DIR": "/opt/apps/intel/15/composer_xe_2015.2.164/mkl",
+    "TACC_MKL_INC": "/opt/apps/intel/15/composer_xe_2015.2.164/mkl/include",
+    "TACC_MKL_LIB": "/opt/apps/intel/15/composer_xe_2015.2.164/mkl/lib/intel64",
+    "TACC_MPI_GETMODE": "mvapich2_ssh",
+    "TACC_PUBLIC_MACHINE": "1",
+    "TACC_SYSTEM": "stampede",
+    "TACC_XALT_BIN": "/opt/apps/xalt/0.6/bin",
+    "TACC_XALT_DIR": "/opt/apps/xalt/0.6/",
+    "TBBROOT": "/opt/apps/intel/15/composer_xe_2015.2.164/tbb",
+    "TERM": "xterm-256color",
+    "TMPDIR": "/tmp",
+    "USER": "tg830512",
+    "WORK": "/work/03752/tg830512",
+    "X509_USER_PROXY": "/tmp/x509up_p8859.file42s9rO.1",
+    "_": "/usr/bin/python",
+    "_LMFILES_": "/opt/apps/modulefiles/intel/15.0.2.lua:/opt/apps/intel15/modulefiles/mvapich2/2.1:/opt/apps/modulefiles/xalt/0.6.lua:/opt/modulefiles/TACC.lua",
+    "__BASHRC_SOURCED__": "1",
+    "__Init_Default_Modules": "1",
+    "__PERSONAL_PATH__": "1",
+    "idev_env_status": "0",
+    "idev_has_user_PERL5LIB": "no",
+    "idev_ip": "c557-801"
+  },
+  "hash_id": "3ed60cdc5b27b501687338fa6960a0205f3a494f",
+  "libA": [
+    [
+      "/home1/03752/tg830512/hpc/hw7/linux-vdso.so.1",
+      "unknown"
+    ],
+    [
+      "/lib64/ld-2.12.so",
+      "807f7eb13a35fd9cb122fc01295403bea4d99b46"
+    ],
+    [
+      "/lib64/libc-2.12.so",
+      "b908808f03f4f6e69f115086f5a630de62faaca1"
+    ],
+    [
+      "/lib64/libdl-2.12.so",
+      "4c54f387e6313534f60b748687e6092d1097f76a"
+    ],
+    [
+      "/lib64/libgcc_s-4.4.7-20120601.so.1",
+      "f1734d9836d119079a76ba1b83677e28e8cdf7c1"
+    ],
+    [
+      "/lib64/libm-2.12.so",
+      "562096ceddece7f9a76b3da040f972561b05a660"
+    ],
+    [
+      "/lib64/libpthread-2.12.so",
+      "739398394a3e04738b08818536b15a03499a8cf1"
+    ],
+    [
+      "/lib64/librt-2.12.so",
+      "568d294a3518b8ca256b545b1bdc56534c329b66"
+    ],
+    [
+      "/lib64/libz.so.1.2.3",
+      "b4495a3a501aa079badf58299c5acf3ab0f90d0e"
+    ],
+    [
+      "/opt/apps/intel/15/composer_xe_2015.2.164/compiler/lib/intel64/libifcore.so.5",
+      "28ffec7cb49cdadc9507d5408c80c3efa7c685b6"
+    ],
+    [
+      "/opt/apps/intel/15/composer_xe_2015.2.164/compiler/lib/intel64/libifport.so.5",
+      "497c414f1a4e18781348a0ddd3230663ae942e38"
+    ],
+    [
+      "/opt/apps/intel/15/composer_xe_2015.2.164/compiler/lib/intel64/libimf.so",
+      "2b570c32e4dd4371e4160d6c82f7cd5ba25ef472"
+    ],
+    [
+      "/opt/apps/intel/15/composer_xe_2015.2.164/compiler/lib/intel64/libintlc.so.5",
+      "5a320c57c79fc035698ad6a26f82ae1bbc005bcb"
+    ],
+    [
+      "/opt/apps/intel/15/composer_xe_2015.2.164/compiler/lib/intel64/libsvml.so",
+      "2233c4a9881c8773a4a9a0d960bf7963cb8a89c0"
+    ],
+    [
+      "/opt/apps/intel15/mvapich2/2.1/lib/libmpi.so.12.0.5",
+      "90bff38c1910e6f79f229d5157f0f965206302a8"
+    ],
+    [
+      "/opt/ofed/lib64/libibmad.so.5.2.2",
+      "fb7e907dcaaa57b88056b1e78e5818c29084602c"
+    ],
+    [
+      "/opt/ofed/lib64/libibumad.so.3.0.2",
+      "bc8be995457401f1dabbbd9abfe67c7fd071ab62"
+    ],
+    [
+      "/opt/ofed/lib64/libibverbs.so.1.0.0",
+      "f7f9de6badb4f5635aa7c620a18a451b670d9e18"
+    ],
+    [
+      "/opt/ofed/lib64/librdmacm.so.1.0.0",
+      "864403c2b3949bcf56f90201e587a856caad6748"
+    ],
+    [
+      "/usr/lib64/libnuma.so.1",
+      "e4505766053054fa7cb9cc0968fb239ab2c576f8"
+    ],
+    [
+      "/usr/lib64/libxml2.so.2.7.6",
+      "4e6700d4531bb2c1d0184a08fee5f162a1ce1642"
+    ]
+  ],
+  "userT": {
+    "currentEpoch": 1447527521.029309,
+    "cwd": "/home1/03752/tg830512/hpc/hw7",
+    "end_time": 1447527520.698,
+    "execModify": "Sat Nov 14 12:58:24 2015",
+    "exec_epoch": 1447527504.0,
+    "exec_path": "/home1/03752/tg830512/hpc/hw7/particles",
+    "exec_type": "binary",
+    "exit_status": 0,
+    "num_tasks": 5,
+    "num_threads": 1,
+    "run_time": 1.8669998645782471,
+    "run_uuid": "431a322c-2414-4180-941c-d9f066c2d3f1",
+    "start_date": "Sat Nov 14 12:58:38 2015",
+    "start_time": 1447527518.8310001,
+    "syshost": "stampede",
+    "user": "tg830512"
+  },
+  "xaltLinkT": {
+    "Build.Epoch": "1447527504.01",
+    "Build.OS": "Linux 2.6.32-431.17.1.el6.x86_64",
+    "Build.Syshost": "stampede",
+    "Build.UUID": "6511866f-34d4-457b-8b3c-f518d08457a9",
+    "Build.User": "tg830512",
+    "Build.Year": "2015",
+    "Build.compiler": "icc",
+    "Build.date": "Sat Nov 14 12:58:24 2015",
+    "XALT_Version": "0.6"
+  }
+}
