@@ -1,32 +1,4 @@
 make
-sbatch trap.batch
-vi trap.c 
-make
-sbatch trap.batch
-vi trap.c 
-make
-sbatch trap.batch
-vi trap.c 
-make
-sbatch trap.batch
-ls
-ls
-vi trap.o5849915
-mv trap.o5849915 mutex_nolocal.txt 
-ls
-vi trap.o5849952
-mv trap.o5849952 busywait_local.txt
-ls
-vi trap.o5849956
-vi trap.o5849958 
-vi trap.c 
-make
-vi trap.o5849964
-vi trap.o5849952
-vi trap.o5849961
-vi trap.o5849956 
-vi trap.c 
-make
 rm trap.o*
 make
 sbatch trap.batch
@@ -997,4 +969,32 @@ git commit -a
 clear
 ls
 git add .
+exit
+clear
+ls
+vi particles.c
+cleawr
+clear
+ls
+ls -a
+rm .particles.c.swp 
+clear
+ls
+idev -A TG-CCR150026
+clear
+ls
+sh mytest.sh 
+sh mytest.sh 15
+vi particles.c 
+sh mytest.sh 15
+vi particles.c 
+clear
+sh mytest.sh 15
+vi particles.c 
+sh mytest.sh 15
+vi particles.c 
+make
+sh mytest.sh 63
+q
+clear
 exit

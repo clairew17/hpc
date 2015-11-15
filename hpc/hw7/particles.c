@@ -12,7 +12,7 @@
 #include <stdlib.h>
 #include <math.h>
 
-#define DEBUG 1
+#define DEBUG 0
 #define TAG 7
 #define CONSTANT 777
 
@@ -39,7 +39,7 @@ double compt_num = 0;
 float random_value(int type);
 void print_particles(struct Particle *particles, struct Particle *result,int n);
 void interact(struct Particle *source, struct Particle *destination);
-void compute_interaction(struct Particle *source, struct Particle *destination, int limit);
+void compute_interaction(struct Particle *source, struct Particle *destination, int limit1,int limit2);
 void compute_self_interaction(struct Particle *set, int size);
 void merge(struct Particle *first, struct Particle *second, int limit);
 
@@ -86,24 +86,27 @@ int ind;
   srand(myRank+myRank*CONSTANT);
 
   // acquiring memory for particle arrays
-  number = floor(n / p) + 1;
-// number of data per process
-int *data_per_proc = (int*)malloc(p);
-int *sendcount = (int*)malloc(p);
-int *displs = (int*)malloc(p);
+  number = floor(n/p)+1;
+// number of data per prcess
+int *data_per_proc = (int*)malloc(p*sizeof(int));
+int *sendcount = (int*)malloc(p*(sizeof(int)));
+int *displs = (int*)malloc(p*sizeof(int));
+j=0;
 for(i=0;i<p;i++){
 	if(i==p-1){
-		data_per_proc[i] = n%p;
+		data_per_proc[i] = n-number*(p-1);;
 	}else{
 		data_per_proc[i]=number;
 	}
 	sendcount[i] = data_per_proc[i]* (sizeof(struct Particle))/sizeof(float);
 	if(i==0)displs[i] = 0;
 	else displs[i] = displs[i-1]+sendcount[i-1];
+	j+=data_per_proc[i];
 }
+//printf("n=%d,total=%d\n",n,j);
 
 locals = (struct Particle *) malloc(number * sizeof(struct Particle));
-  remotes = (struct Particle *) malloc(number * sizeof(struct Particle));
+remotes = (struct Particle *) malloc(number * sizeof(struct Particle));
 
   // checking for file information
   if(argc == 3){
@@ -145,10 +148,10 @@ if(myRank == 0){
     }
 
 // ************* GET NEXT_RANK AND PREVIOUS RANK
-previous=(myRank-1)%p;
-next=(myRank+1)%p;
+previous=(myRank-1+p)%p;
+next=(myRank+1+p)%p;
 
-printf("rank=%d\tdatanum=%d\n",myRank,data_per_proc[myRank]);
+//printf("rank=%d\tdatanum=%d\n",myRank,data_per_proc[myRank]);
  
     // To send/recv (or scatter/gather) you will need to learn how to
     // transfer structs of floats, treat it as a contiguous block of
@@ -171,7 +174,16 @@ printf("rank=%d\tdatanum=%d\n",myRank,data_per_proc[myRank]);
 
 //*********************** YOUR CODE GOES HERE (distributing particles among processors) 
 //printf("Broadcast initial data to processors...\n");
-
+/*MPI_Scatter(globals,//SEND_BUF
+number*(sizeof (struct Particle)) / sizeof(float),
+//displs,
+MPI_FLOAT,
+locals,//recv_buf
+number*(sizeof (struct Particle)) / sizeof(float),//recv_count
+MPI_FLOAT,
+0,//SOURCE_PROCESSOR
+MPI_COMM_WORLD);
+*/
 MPI_Scatterv(globals,//SEND_BUF
 sendcount,//data_per_proc*(sizeof (struct Particle)) / sizeof(float),
 displs,
@@ -181,6 +193,7 @@ sendcount[myRank],//number*(sizeof (struct Particle)) / sizeof(float),//recv_cou
 MPI_FLOAT,
 0,//SOURCE_PROCESSOR
 MPI_COMM_WORLD);
+
 
 //recv_num++;
 //printf("myRank=%d\trecv_num=%d\n...",myRank,recv_num);
@@ -230,7 +243,7 @@ initiator = status.MPI_TAG;
 if(DEBUG)printf("------ %d receive from %d...homeOfRemote=%d\n",myRank,previous,initiator);
 
 //calculate force
-compute_interaction(locals, remotes, number);
+compute_interaction(locals, remotes, data_per_proc[myRank], data_per_proc[initiator]);
 
 //pass remote
 	//send to original processor if the last step
@@ -245,6 +258,7 @@ compute_interaction(locals, remotes, number);
               next, //dest
               initiator,//(myRank-i-1+p)%p,//tag
               MPI_COMM_WORLD, &request);
+	if(DEBUG)printf("%d send to %d\n",myRank,next);
 }
 //printf("myRank=%d\trecv_num=%d\n...",myRank,recv_num);
 
@@ -275,7 +289,16 @@ merge(locals, remotes, number);
   if(argc == 3){
     
 //********************** YOUR CODE GOES HERE (collect particles at rank 0)
-
+/*MPI_Gather(locals,//SEND_BUF
+number*(sizeof (struct Particle)) / sizeof(float),
+MPI_FLOAT,
+globals,//recv_buf
+number*(sizeof (struct Particle)) / sizeof(float),//recv_count
+//displs,
+MPI_FLOAT,
+0,//dest_PROCESSOR
+MPI_COMM_WORLD);
+*/
 
 MPI_Gatherv(locals,//SEND_BUF
 sendcount[myRank],//number*(sizeof (struct Particle)) / sizeof(float),
@@ -293,13 +316,13 @@ MPI_COMM_WORLD);
     }
   }
 
+free(data_per_proc);
+free(displs);
+free(sendcount);
 
   // finalizing MPI structures
   MPI_Finalize();
 //printf("Total compt_num=%f\n",compt_num);
-free(data_per_proc);
-free(displs);
-free(sendcount);
 }
 
 // Function for random value generation
@@ -323,12 +346,12 @@ void print_particles(struct Particle *particles, struct Particle *result, int n)
   int j;
   printf("Index\tx\ty\tmass\tfx\tfy\n");
   for(j = 0; j < n; j++){
-    if(DEBUG){
 	printf("ERR\t%d\t%f\t%f\t%f\t%f\t%f(--err)\n",j,particles[j].x,particles[j].y,particles[j].mass,particles[j].fx-result[j].fx,particles[j].fy-result[j].fy);
+    if(DEBUG){
 	printf("Orig\t%d\t%f\t%f\t%f\t%f\t%f\n",j,particles[j].x,particles[j].y,particles[j].mass,particles[j].fx,particles[j].fy);
 	printf("Ref\t%d\t%f\t%f\t%f\t%f\t%f\n",j,result[j].x,result[j].y,result[j].mass,result[j].fx,result[j].fy);
     }else
-	printf("%d\t%f\t%f\t%f\t%f\t%f\n",j,particles[j].x,particles[j].y,particles[j].mass,particles[j].fx,particles[j].fy);
+	printf("Result\t%d\t%f\t%f\t%f\t%f\t%f\n",j,particles[j].x,particles[j].y,particles[j].mass,particles[j].fx,particles[j].fy);
   }
 }
 
@@ -360,12 +383,12 @@ void interact(struct Particle *first, struct Particle *second){
 }
 
 // Function for computing interaction between two sets of particles
-void compute_interaction(struct Particle *first, struct Particle *second, int limit){
+void compute_interaction(struct Particle *first, struct Particle *second, int limit1, int limit2){
   int j,k;
  compt_num++;
- 
-  for(j = 0; j < limit; j++){
-    for(k = 0; k < limit; k++){
+ if(DEBUG)printf("compute inter limit1=%d\tlimite2=%d...\n",limit1,limit2);
+  for(j = 0; j < limit1; j++){
+    for(k = 0; k < limit2; k++){
       interact(&first[j],&second[k]);
     }
   }
@@ -373,7 +396,8 @@ void compute_interaction(struct Particle *first, struct Particle *second, int li
 
 // Function for computing interaction between two sets of particles
 void compute_self_interaction(struct Particle *set, int size){
-  int j,k;
+  
+	int j,k;
   
   for(j = 0; j < size; j++){
     for(k = j+1; k < size; k++){
