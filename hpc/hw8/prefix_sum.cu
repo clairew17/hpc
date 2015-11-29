@@ -29,7 +29,7 @@ __syncthreads();
 
 for(int offset=1;offset<n;offset *= 2){
 	pout = 1 - pout;
-	pin = 1- pout;
+	pin = 1- pin;
 	if(thid>= offset)
 		temp[pout*n+thid] += temp[pin*n+thid-offset];
 	else 
@@ -60,27 +60,28 @@ for(int d=n>>1;d>0;d >>= 1)//buildsuminplaceupthetree
 	{
 		int ai= offset *(2*thid+1)-1;
 		int bi= offset *(2*thid+2)-1;
-
+        temp[bi] += temp[ai];
 	}
+    offset *= 2;
 
 }
-if (thid == 0)
-for(intd=1;d<n;d*=2)//traversedowntree&buildscan 29| {
-         offset >>= 1;
-31|         __syncthreads();
-32|
-33| if (thid < d)
-34| {
-35| int ai = offset*(2*thid+1)-1;
-36| int bi = offset*(2*thid+2)-1;
-37|
-38|            float t   = temp[ai];
-39| temp[ai] = temp[bi];
-40|            temp[bi] += t;
-41| }
-42|     }
-43|
-44|     __syncthreads();
+if (thid == 0){temp[n-1] = 0;}
+for(int d = 1; d < n; d *= 2)
+{
+    offset >>= 1;
+    __syncthreads();
+    if(thid < d){
+		int ai= offset *(2*thid+1)-1;
+		int bi= offset *(2*thid+2)-1;
+        float t = temp[ai];
+        temp[ai] = temp[bi];
+        temp[bi] += t;
+    }
+}
+__syncthreads();
+
+g_odata[2*thid] = temp[2*thid];
+g_odata[2*thid+1] = temp[2*thid+1];
 
 
 }
