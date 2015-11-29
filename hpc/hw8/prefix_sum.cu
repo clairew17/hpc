@@ -23,17 +23,18 @@ int thid = threadIdx.x;
 int pout=0, pin =1;
 
   // STUDENT: YOUR CODE GOES HERE.
-g_odata[threadIdx.x] = 0.0;
-temp[pout*n + thid] = (thid>0)?g_odata[thid-1]:0;
+//g_odata[threadIdx.x] = 0.0;
+temp[pout*n + thid] = (thid>0)?g_idata[thid-1]:0;
 __syncthreads();
 
 for(int offset=1;offset<n;offset *= 2){
 	pout = 1 - pout;
 	pin = 1- pin;
-	if(thid>= offset)
-		temp[pout*n+thid] += temp[pin*n+thid-offset];
-	else 
+	if(thid>= offset){
+		temp[pout*n+thid] = temp[pin*n+thid]+temp[pin*n+thid-offset];
+	}else{
 		temp[pout*n+thid] = temp[pin*n+thid];
+	}
 	__syncthreads();
 }
 g_odata[thid] = temp[pout*n + thid];
@@ -46,7 +47,6 @@ __global__ void prescan(float *g_odata, float *g_idata, int n) {
 
 extern  __shared__  float temp[];  
 int thid = threadIdx.x;
-int pout=0, pin =1;
 int offset = 1;
 // STUDENT: YOUR CODE GOES HERE.
 temp[2*thid] = g_idata[2*thid];
@@ -71,8 +71,8 @@ for(int d = 1; d < n; d *= 2)
     offset >>= 1;
     __syncthreads();
     if(thid < d){
-		int ai= offset *(2*thid+1)-1;
-		int bi= offset *(2*thid+2)-1;
+	int ai= offset *(2*thid+1)-1;
+	int bi= offset *(2*thid+2)-1;
         float t = temp[ai];
         temp[ai] = temp[bi];
         temp[bi] += t;
