@@ -8,26 +8,14 @@
 #N=256
 #N=16384
 #N=10000
-N=4096
+N=$1
 #N=6400
 #N=3600
 #N=1024
 
-echo N=$N
+echo "ShearSort...N=$N"
 echo "serial.."
 ./shear_serial $N
-
-export OMP_NUM_THREADS=2
-echo "OMP_NUM_THREADS=2"
-./shear $N
-
-export OMP_NUM_THREADS=4
-echo "OMP_NUM_THREADS=4"
-./shear $N
-
-export OMP_NUM_THREADS=8
-echo "OMP_NUM_THREADS=8"
-./shear $N
 
 export OMP_NUM_THREADS=16
 echo "OMP_NUM_THREADS=16"

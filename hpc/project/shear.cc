@@ -144,10 +144,11 @@ int main(int argc, char* argv[]) {
   if (M <= 10) {
     printMatrix(A,M);
   }
+//printf("ShearSort...N=%d\n",N);
   printf("Took %ld ms\n", timerStop());
 bool Correct = CheckResult(A,M);
-if(Correct)printf("---Congrats! The result is correct!\n");
-else printf("---Error!\n");
+/*if(Correct)printf("---Congrats! The result is correct!\n");
+else printf("---Error!\n");*/
   // releasing memory
   for (int i=0; i<M; i++) {
     delete [] A[i];

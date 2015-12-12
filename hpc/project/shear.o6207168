@@ -1,0 +1,9 @@
+ShearSort...N=4096
+serial..
+Took 296 ms
+OMP_NUM_THREADS=16
+Took 562 ms
+OMP_NUM_THREADS=32
+Took 578 ms
+OMP_NUM_THREADS=64
+Took 599 ms

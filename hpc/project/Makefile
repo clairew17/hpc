@@ -1,7 +1,7 @@
 all:
-	mergesort
 	icpc shear.cc -o shear -fopenmp -g
 	icpc shear.cc -o shear_serial -w -g
+	mpicc -o mergesort mergesort.cc -g
 
 mac:
 	g++ shear.cc -o shear -fopenmp

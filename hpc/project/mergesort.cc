@@ -2,8 +2,9 @@
 #include <stdio.h>
 #include <mpi.h>
 #include <time.h>
-
-#define N 1000000
+#include <stdlib.h>
+////#define N 1000000
+double start_time, end_time;
 
 void showElapsed(int id, char *m);
 void showVector(int *v, int n, int id);
@@ -11,8 +12,7 @@ int * merge(int *A, int asize, int *B, int bsize);
 void swap(int *v, int i, int j);
 void m_sort(int *A, int min, int max);
 
-double startT,stopT;
-
+//double startT,stopT;
 double startTime;
 
 void showElapsed(int id, char *m)
@@ -97,6 +97,7 @@ void m_sort(int *A, int min, int max)
 
 main(int argc, char **argv)
 {
+	int N = atoi(argv[1]);
 	int * data;
 	int * chunk;
 	int * other;
@@ -111,7 +112,7 @@ main(int argc, char **argv)
 	MPI_Comm_rank(MPI_COMM_WORLD,&id);
 	MPI_Comm_size(MPI_COMM_WORLD,&p);
 
-	startT = clock();
+	//startT = clock();
 	if(id==0)
 	{
 		int r;
@@ -127,8 +128,8 @@ main(int argc, char **argv)
 				data[i]=0;
 			s=s+1;
 		}
-
-
+		start_time = MPI_Wtime();
+		
 		MPI_Bcast(&s,1,MPI_INT,0,MPI_COMM_WORLD);
 		chunk = (int *)malloc(s*sizeof(int));
 		MPI_Scatter(data,s,MPI_INT,chunk,s,MPI_INT,0,MPI_COMM_WORLD);
@@ -168,12 +169,15 @@ main(int argc, char **argv)
 		step = step*2;
 	}
 
-	stopT = clock();
+	//stopT = clock();
 	if(id==0)
 	{
 		FILE * fout;
+		//printf("MergeSort...N=%d\n",N);
+    end_time = MPI_Wtime();
+    printf("n=%d\tp=%d\tDuration: %f seconds\n", n,p,(end_time-start_time));
 
-		printf("%d; %d processors; %f secs\n",s,p,(stopT-startT)/CLOCKS_PER_SEC);
+		//printf("%d; %d processors; %f secs\n",s,p,(stopT-startT)/CLOCKS_PER_SEC);
 
 		fout = fopen("result","w");
 		for(i=0;i<s;i++)
