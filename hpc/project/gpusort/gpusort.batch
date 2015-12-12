@@ -1,0 +1,10 @@
+#!/bin/bash
+#SBATCH -J gpusort        # Job Name
+#SBATCH -o gpusort.o%j    # Output and error file name (%j expands to jobID)
+#SBATCH -n 16                # Total number of mpi tasks requested
+#SBATCH -p gpudev            # Queue (partition) name -- normal, development, etc.
+#SBATCH -t 00:03:00          # Run time (hh:mm:ss) - 3 minutes
+#SBATCH -A TG-CCR150026
+N=4096
+echo "GPUSort...N=$N"
+./gpusort $N
