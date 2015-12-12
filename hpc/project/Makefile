@@ -12,3 +12,5 @@ mergesort: mergesort.cc
 clean:
 	rm -f shear shear_serial
 	rm -f mergesort
+	
+	

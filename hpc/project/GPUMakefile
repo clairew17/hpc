@@ -1,0 +1,5 @@
+gpusort: gpusort.cu
+nvcc -o gpusort gpusort.cu
+
+clean:
+	rm -f gpusort
