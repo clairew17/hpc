@@ -44,7 +44,7 @@ g_odata[thid] = temp[pout*n + thid];
  * You should implement the prescan kernel function here!
  */
 __global__ void prescan(float *g_odata, float *g_idata, int n) {
-
+g_odata[0]=0;
 extern  __shared__  float temp[];  
 int thid = threadIdx.x;
 int offset = 1;
@@ -180,7 +180,7 @@ int main(void) {
   // note size change in number of threads, only need 256 because each
   // thread should handle 2 elements.
   // ***********
-  timerStart();
+timerStart();
   prescan<<< 1, 256, N * 2 * sizeof(float)>>>(d_out, d_in, N);
   cudaDeviceSynchronize();
   printf("TIME: Prescan kernel took %d ms\n",  timerStop());
